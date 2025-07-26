@@ -21,6 +21,8 @@ from api import views as app_views
 
 router = routers.DefaultRouter()
 router.register(r'posts', app_views.PostViewSet)
+router.register(r'foods', app_views.FoodViewSet)
+router.register(r'logs', app_views.UserLogViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

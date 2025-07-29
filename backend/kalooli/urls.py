@@ -28,7 +28,8 @@ TokenRefreshView,
 router = routers.DefaultRouter()
 router.register(r'posts', app_views.PostViewSet)
 router.register(r'foods', app_views.FoodViewSet)
-router.register(r'logs', app_views.UserLogViewSet)
+router.register(r'logs', app_views.UserLogViewSet, basename='userlog')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

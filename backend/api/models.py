@@ -27,5 +27,12 @@ class UserLog(models.Model):
     def __str__(self):
         return f'{self.user.username} - {self.food.name} on {self.date}'
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    daily_calorie_goal = models.IntegerField(default=2000)
+    daily_protein_goal = models.IntegerField(default=150)
+    daily_carb_goal = models.IntegerField(default=250)
+    daily_fat_goal = models.IntegerField(default=60)
 
-
+    def __str__(self):
+        return self.user.username

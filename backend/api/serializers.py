@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
-from .models import Post, Food, UserLog
+from .models import Post, Food, UserLog, UserProfile
 
 
 
@@ -61,3 +61,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ['daily_calorie_goal', 'daily_protein_goal', 'daily_carb_goal', 'daily_fat_goal']
